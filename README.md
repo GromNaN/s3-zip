@@ -1,7 +1,3 @@
-# Work in progress
-
-https://github.com/gromnan/s3-zip/pull/1
-
 # Partial ZIP Reader 
 
 Having a ZIP archive hosted on AWS S3 or an HTTP(S) server?
