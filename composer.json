@@ -1,0 +1,32 @@
+{
+    "name": "gromnan/s3-zip",
+    "description": "Read partial zip on AWS S3 or HTTP",
+    "keywords": ["zip", "s3"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jérôme TAMARELLE",
+            "email": "jerome@tamarelle.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "GromNaN\\S3Zip\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GromNaN\\S3Zip\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.4",
+        "async-aws/s3": "^1.5"
+    },
+    "require-dev": {
+        "symfony/http-kernel": "^5.1",
+        "symfony/var-dumper": "^5.1",
+        "symfony/phpunit-bridge": "^5.1"
+    }
+}

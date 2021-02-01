@@ -1,0 +1,7 @@
+version: "3.5"
+
+services:
+    s3:
+        image: asyncaws/testing-s3
+        ports:
+            - 4569:4569
