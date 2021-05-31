@@ -7,7 +7,7 @@ This packages use the `Range: bytes=%d-%d` header to download only the necessary
 
 ## Installation
 
-Use [composer](https://getcomposer.org/) to install `gromnan/s3-zip`.
+Use [composer](https://getcomposer.org/) to install [`gromnan/s3-zip` from packagist](https://packagist.org/packages/gromnan/s3-zip).
 
 ```bash
 composer require gromnan/s3-zip
