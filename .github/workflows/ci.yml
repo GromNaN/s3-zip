@@ -1,0 +1,54 @@
+name: Continuous Integration
+
+on:
+    pull_request:
+    push:
+        branches:
+            - main
+
+jobs:
+    tests:
+        name: "Tests [PHP ${{ matrix.php }} - ${{ matrix.dependencies }}]"
+        runs-on: ubuntu-latest
+
+        services:
+            s3:
+                image: asyncaws/testing-s3
+                ports:
+                    - 4569:4569
+
+        strategy:
+            fail-fast: false
+            matrix:
+                php:
+                    - "7.4"
+                    - "8.0"
+                    - "8.1"
+                dependencies:
+                    - highest
+                include:
+                    - php: 7.4
+                      dependencies: 'lowest'
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            # https://github.com/shivammathur/setup-php
+            - name: Setup PHP
+              uses: "shivammathur/setup-php@v2"
+              with:
+                  php-version: "${{ matrix.php }}"
+                  tools: phpunit-bridge
+                  extensions: mbstring
+                  coverage: xdebug
+
+            # https://github.com/ramsey/composer-install
+            - name: Composer
+              uses: "ramsey/composer-install@v2"
+              with:
+                  dependency-versions: "${{ matrix.dependencies }}"
+                  composer-options: "--optimize-autoloader"
+
+            - name: Run tests
+              run: vendor/bin/simple-phpunit --coverage-text
