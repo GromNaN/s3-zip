@@ -2,3 +2,4 @@
 /composer.phar
 /vendor/
 /tests/Integration/tmp/
+/.phpunit.result.cache

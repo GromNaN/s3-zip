@@ -17,7 +17,7 @@ abstract class ArchiveTest extends TestCase
     {
         $this->filename = __DIR__.'/tmp/archive.zip';
         if (!is_dir(dirname($this->filename))) {
-            mkdir($this->filename);
+            mkdir(dirname($this->filename));
         }
         if (file_exists($this->filename)) {
             unlink($this->filename);
