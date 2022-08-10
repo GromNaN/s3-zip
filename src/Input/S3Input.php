@@ -48,6 +48,24 @@ class S3Input implements InputInterface
         return $res->getBody()->getContentAsString();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function fetchStream(int $start, int $length, string $reason)
+    {
+        $end = $start + $length - 1;
+
+        $this->logger->info(sprintf('Streaming bytes %d-%d from %s on %s as %s.', $start, $end, $this->key, $this->bucket, $reason));
+
+        $result = $this->s3->getObject([
+            'Bucket' => $this->bucket,
+            'Key' => $this->key,
+            'Range' => sprintf('bytes=%d-%d', $start, $end)
+        ]);
+
+        return $result->getBody()->getContentAsResource();
+    }
+
     public function length(): int
     {
         $res = $this->s3->headObject([

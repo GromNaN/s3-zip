@@ -1,6 +1,5 @@
 <?php
 
-
 namespace GromNaN\S3Zip;
 
 use GromNaN\S3Zip\Input\InputInterface;
@@ -42,5 +41,13 @@ class File
             +unpack('v', $chunk, 28)[1];
 
         return gzinflate(substr($chunk, $headerSize), $length);
+    }
+
+    /**
+     * @return resource
+     */
+    public function getUncompressedStream()
+    {
+        return $this->input->fetchStream($this->offset, $this->length, 'streaming file '.$this->name);
     }
 }

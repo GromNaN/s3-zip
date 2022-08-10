@@ -7,5 +7,10 @@ interface InputInterface
 {
     public function fetch(int $start, int $length, string $reason): string;
 
+    /**
+     * @return resource
+     */
+    public function fetchStream(int $start, int $length, string $reason);
+
     public function length(): int;
 }

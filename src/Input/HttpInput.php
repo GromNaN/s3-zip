@@ -44,6 +44,14 @@ class HttpInput implements InputInterface
         return $res->getContent();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function fetchStream(int $start, int $length, string $reason)
+    {
+        throw new \BadMethodCallException('Not implemented');
+    }
+
     public function length(): int
     {
         $res = $this->httpClient->request('HEAD', $this->filename);

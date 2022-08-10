@@ -23,7 +23,8 @@
     "require": {
         "php": ">=7.4",
         "async-aws/s3": "^1.5",
-        "psr/log": "^1.1|^2.0|^3.0"
+        "psr/log": "^1.1|^2.0|^3.0",
+        "ext-zlib": "*"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^5.4|^6.0"
