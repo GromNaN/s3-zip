@@ -28,18 +28,6 @@ class LocalInput implements InputInterface
         return fread($this->handle, $length);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function fetchStream(int $start, int $length, string $reason)
-    {
-        if (!rewind($this->handle)) {
-            throw new \Exception('Failed to rewind the stream');
-        }
-
-        return $this->handle;
-    }
-
     public function length(): int
     {
         return fstat($this->handle)['size'];

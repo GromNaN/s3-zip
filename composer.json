@@ -22,11 +22,12 @@
     },
     "require": {
         "php": ">=7.4",
+        "ext-zlib": "*",
         "async-aws/s3": "^1.5",
-        "psr/log": "^1.1|^2.0|^3.0",
-        "ext-zlib": "*"
+        "psr/log": "^1.1|^2.0|^3.0"
     },
     "require-dev": {
+        "ext-zip": "*",
         "symfony/phpunit-bridge": "^5.4|^6.0"
     }
 }

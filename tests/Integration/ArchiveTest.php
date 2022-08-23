@@ -1,6 +1,5 @@
 <?php
 
-
 namespace GromNaN\S3Zip\Tests\Integration;
 
 use GromNaN\S3Zip\Archive;
@@ -34,6 +33,10 @@ abstract class ArchiveTest extends TestCase
 
         $this->assertInstanceOf(File::class, $files[0]);
         $this->assertSame($files[5], $archive->getFile($files[5]->getName()));
+
+        $contents = $files[3]->getContents();
+        $compressedContents = $files[3]->fetch();
+        $this->assertSame($contents, gzinflate($compressedContents));
     }
 
     /**

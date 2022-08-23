@@ -1,6 +1,5 @@
 <?php
 
-
 namespace GromNaN\S3Zip;
 
 use GromNaN\S3Zip\Input\InputInterface;
@@ -8,7 +7,11 @@ use GromNaN\S3Zip\Input\InputInterface;
 class Archive
 {
     private InputInterface $input;
+
+    /** @var array<int, File> */
     private array $filesByIndex;
+
+    /** @var array<string, File> */
     private array $filesByName;
 
     public function __construct(InputInterface $input)
@@ -76,11 +79,17 @@ class Archive
         }
     }
 
+    /**
+     * @return string[]
+     */
     public function getFileNames(): array
     {
         return array_keys($this->filesByName);
     }
 
+    /**
+     * @return array<int, File>
+     */
     public function getFiles(): array
     {
         return $this->filesByIndex;

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace GromNaN\S3Zip\Input;
 
 use AsyncAws\S3\S3Client;
@@ -42,14 +41,6 @@ class HttpInput implements InputInterface
         ]);
 
         return $res->getContent();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function fetchStream(int $start, int $length, string $reason)
-    {
-        throw new \BadMethodCallException('Not implemented');
     }
 
     public function length(): int
