@@ -1,6 +1,5 @@
 <?php
 
-
 namespace GromNaN\S3Zip\Input;
 
 use AsyncAws\S3\S3Client;

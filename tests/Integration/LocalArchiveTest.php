@@ -1,6 +1,5 @@
 <?php
 
-
 namespace GromNaN\S3Zip\Tests\Integration;
 
 use GromNaN\S3Zip\Input\InputInterface;

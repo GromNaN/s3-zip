@@ -1,6 +1,5 @@
 <?php
 
-
 namespace GromNaN\S3Zip\Input;
 
 interface InputInterface
