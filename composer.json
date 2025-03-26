@@ -23,11 +23,11 @@
     "require": {
         "php": ">=7.4",
         "ext-zlib": "*",
-        "async-aws/s3": "^1.5",
+        "async-aws/s3": "^1.5|^2",
         "psr/log": "^1.1|^2.0|^3.0"
     },
     "require-dev": {
         "ext-zip": "*",
-        "symfony/phpunit-bridge": "^5.4|^6.0"
+        "symfony/phpunit-bridge": "^5.4|^6|^7"
     }
 }
